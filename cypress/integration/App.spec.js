@@ -41,5 +41,21 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '0')
   })
 
+  it('should return a very large number when two large numbers are multiplied together', () => {
+    cy.get('#number8').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#operator_multiply').click();  
+    cy.get('#number6').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '4800000000')
+  })
+
 })
 
